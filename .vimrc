@@ -9,14 +9,23 @@ Plugin 'scrooloose/nerdtree.git'
 Plugin 'kien/ctrlp.vim'
 Plugin 'jonathanfilip/vim-lucius'
 Plugin 'ervandew/supertab'
-Plugin 'vim-scripts/AutoClose'
 Plugin 'vim-scripts/taglist.vim'
+"Plugin 'vim-scripts/AutoClose'
+Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdcommenter'
 
 " PHP Specific Bundles
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'docteurklein/php-getter-setter.vim'
 
 call vundle#end() 
+" Vundle"
+
+" Backup
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
+set undodir=~/.vim/undo//
 
 " Appearance
 syntax on
@@ -35,23 +44,29 @@ LuciusDark
 autocmd  FileType  php set omnifunc=phpcomplete#CompletePHP
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 
-" Mappings -----
+" Syntastic
+let g:syntastic_php_checkers = ['php']
+
+" Taglist
+let tlist_php_settings='php;f:function'
+
+" Mappings -------------------------------
 
 let mapleader=","
 
-" Nerdtree
 nnoremap <leader>n :NERDTreeToggle<CR>
-
-"CtrlP
 nmap <leader>f :CtrlP<CR>
-
-"Tagbar
-nmap <leader>o :TagbarToggle<CR>
+nmap <leader>t :TlistToggle<CR>
 
 " Save
 noremap <silent> <C-S>          :update<CR>
 vnoremap <silent> <C-S>         <C-C>:update<CR>
 inoremap <silent> <C-S>         <C-O>:update<CR>
 
-map <C-j> <C-w>j
-map <C-k> <C-w>k
+" Switching Splits"
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-h> <C-w>h
+nmap <C-l> <C-w>l
+
+" Mappings -------------------------------
