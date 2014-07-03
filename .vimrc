@@ -10,7 +10,6 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'jonathanfilip/vim-lucius'
 Plugin 'ervandew/supertab'
 Plugin 'vim-scripts/taglist.vim'
-"Plugin 'vim-scripts/AutoClose'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdcommenter'
@@ -32,13 +31,21 @@ syntax on
 filetype plugin indent on
 set number
 set autoindent
+set smartindent                                    
+set smarttab
 set mouse=a
 set shiftwidth=3
 set softtabstop=3
 set nowrap
+set encoding=utf-8 
+set history=1000
+set undolevels=1000
 
 colorscheme lucius
 LuciusDark
+
+" Nerdtree
+""autocmd VimEnter * if !argc() | NERDTree | endif
 
 " Autocomplete
 autocmd  FileType  php set omnifunc=phpcomplete#CompletePHP
@@ -49,6 +56,9 @@ let g:syntastic_php_checkers = ['php']
 
 " Taglist
 let tlist_php_settings='php;f:function'
+let Tlist_GainFocus_On_ToggleOpen = 1
+let Tlist_Exit_OnlyWindow = 1
+let Tlist_Use_Right_Window = 1
 
 " Mappings -------------------------------
 
