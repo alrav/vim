@@ -14,9 +14,11 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdcommenter'
 
+
 " PHP Specific Bundles
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'docteurklein/php-getter-setter.vim'
+Plugin 'arnaud-lb/vim-php-namespace'
 
 call vundle#end() 
 " Vundle"
@@ -34,12 +36,14 @@ set autoindent
 set smartindent                                    
 set smarttab
 set mouse=a
-set shiftwidth=3
-set softtabstop=3
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 set nowrap
 set encoding=utf-8 
 set history=1000
 set undolevels=1000
+set backspace=indent,eol,start
 
 colorscheme lucius
 LuciusDark
@@ -50,6 +54,8 @@ LuciusDark
 " Autocomplete
 autocmd  FileType  php set omnifunc=phpcomplete#CompletePHP
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
 
 " Syntastic
 let g:syntastic_php_checkers = ['php']
@@ -78,5 +84,12 @@ nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-h> <C-w>h
 nmap <C-l> <C-w>l
+
+" Automatically create closing bracket with indentation
+inoremap {<CR> {<CR>}<C-o>O
+
+" Automatic use on cursor
+inoremap <Leader>u <C-O>:call PhpInsertUse()<CR>
+noremap <Leader>u :call PhpInsertUse()<CR>
 
 " Mappings -------------------------------
