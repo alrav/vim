@@ -28,7 +28,7 @@ set nocompatible
 	" SnipMate
 	Plugin 'MarcWeber/vim-addon-mw-utils'
 	Plugin 'tomtom/tlib_vim'
-	Plugin 'garbas/vim-snipmate'
+	Plugin 'alrav/vim-snipmate'
 	Plugin 'alrav/vim-snippets'
 
 	" PHP
